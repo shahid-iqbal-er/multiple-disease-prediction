@@ -1,0 +1,595 @@
+/* ==============================
+   Global Styles & Variables
+   ============================== */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+:root{
+    --red: #fd7777;
+    --red-dark: #e25f5f;
+    --accent: lightseagreen;
+    --text-main: #333;
+    --text-muted: #666;
+    --bg-light: #ffffff;
+    --bg-soft: #f5f7fb;
+    --shadow-soft: 0 0.3rem 0.5rem rgba(0,0,0,0.08);
+    --shadow-strong: 0 1rem 1.8rem rgba(0,0,0,0.16);
+    --radius-lg: 1.4rem;
+}
+
+*{
+    font-family: 'Arvo', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    scroll-behavior: smooth;
+    list-style: none;
+}
+
+html{
+    font-size: 62.5%; /* 1rem ≈ 10px */
+}
+
+/* Global body background + text */
+body {
+    background: var(--bg-soft);
+    color: var(--text-main);
+}
+
+*::selection{
+    background: var(--red);
+    color: #fff;
+}
+
+/* ==============================
+   Header & Navigation
+   ============================== */
+
+header{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background: var(--bg-light);
+    padding: 1.5rem 10%;
+    box-shadow: 0 0.3rem 2rem rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu-bar{
+    display: none;
+    cursor: pointer;
+}
+
+header .logo img{
+    height: 100%;
+    max-height: 5rem;
+}
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .navbar ul li{
+    margin-left: 1.9rem;
+}
+
+header .navbar ul li a{
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    position: relative;
+    padding-bottom: 0.2rem;
+    transition: color 0.2s linear;
+}
+
+/* underline hover effect */
+header .navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width 0.2s ease-in-out;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover{
+    color: var(--red);
+}
+
+header .navbar ul li a:hover::after,
+header .navbar ul li a.active::after {
+    width: 100%;
+}
+
+/* ==============================
+   Home Section
+   ============================== */
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding: 10rem 10% 4rem 10%; /* add top padding to account for fixed header */
+    background: var(--bg-soft);
+}
+
+.home::before,
+.home::after{
+    content: '';
+    position: absolute;
+    top: 5rem; 
+    right: -6rem;
+    background: var(--red);
+    border-radius: 3rem;
+    transform: rotate(-45deg);
+    height: 40rem;
+    width: 70rem;
+    z-index: -2;
+    animation: animateIntro 1s linear 1;
+}
+
+@keyframes animateIntro{
+    0%{
+        transform: rotate(45deg) translateY(-40rem) translateX(-10rem);
+    }
+}
+
+.home::before{
+    top: -7rem;
+    background: #fff;
+    box-shadow: 0 1rem 4rem rgba(0,0,0,0.1);
+    z-index: -1;
+}
+
+.home .image{
+    flex: 1 1 39rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .image img{
+    margin-top: 4rem;
+    width: 100%;
+    max-width: 45rem;
+}
+
+.home .content{
+    flex: 1 1 39rem;
+}
+
+.home .content h3{
+    margin-left: 1.1rem;
+    color: var(--text-main);
+    font-size: 2rem;
+}
+
+.home .content p{
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    padding: 1rem 0.8rem;
+    margin-right: 1.4rem;
+    line-height: 1.5;
+}
+
+/* ==============================
+   About / Content Sections
+   ============================== */
+
+.about .content_about h3{
+    color: var(--red);
+    font-size: 1.9rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about .content_about ul{
+    text-align: center;
+}
+
+.about .content_about ul li{
+    margin-right: 1.4rem;
+    margin-bottom: 1.4rem;
+    font-size: 1.3rem;
+    color: var(--text-muted);
+}
+
+/* Reusable box containers */
+
+.box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 10%;
+}
+
+/* Disease description cards on home */
+.box{
+    background: #fff;
+    width: 35rem;
+    padding: 2.2rem 2.4rem;
+    margin: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.box:hover{
+    border: 1px solid var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-strong);
+}
+
+.symptoms{
+    font-size: 1.7rem;
+    color: var(--red);
+    text-align: left;
+    cursor: default;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    transition: color 0.2s linear;
+}
+
+.symptoms:hover{
+    color: var(--accent);
+}
+
+/* Header inside each disease card (icon + name) */
+.disease-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.disease-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(253, 119, 119, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--red);
+}
+
+.disease-name {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.description{
+    color: var(--text-muted);
+    margin-left: 0.4rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+/* ==============================
+   Footer & Table Header
+   ============================== */
+
+.footer,
+.tableh{
+    background-color: var(--red);
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p,
+.tableh p{
+    font-size: 1.6rem;
+    color: var(--text-main);
+    text-align: center;
+    padding: 2rem;
+}
+
+/* ==============================
+   Multiple Page Images / Titles
+   ============================== */
+
+.image2{
+    border: 3.5px solid var(--red);
+    background-size: cover;
+    object-fit: cover;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 7.5rem auto 2rem auto;
+    transition: border-color 0.2s ease;
+}
+
+.image2:hover{
+    border: 3.5px solid var(--accent);
+}
+
+.title{
+    font-size: 1.6rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ==============================
+   Forms
+   ============================== */
+
+.card{
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 4rem 0;
+    flex: 1 0 auto;
+}
+
+form{
+    display: block;
+    margin: 0 auto;
+    max-width: 42rem;
+    background: #ffffff;
+    padding: 2.4rem 2.8rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Input fields */
+.form-input{
+    display: block;
+    width: 100%;
+    height: 3.8rem;
+    margin: 0 0 1.2rem 0;
+    border-radius: 1rem;
+    border: 1px solid #d3e2f1;
+    padding: 0.5rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+.form-input::placeholder {
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.form-input:hover{
+    border-color: var(--red);
+}
+
+.form-input:focus{
+    border-color: #722D95;
+    box-shadow: 0 0 0 2px rgba(114,45,149,0.18);
+}
+
+/* Predict button */
+.my-cta-button{
+    background: var(--red);
+    border: none;
+    border-radius: 999px;
+    margin-top: 1.4rem;
+    padding: 0.9rem 3.2rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    box-shadow: 0 0.8rem 1.8rem rgba(253, 119, 119, 0.35);
+    transition: all 0.2s ease-in-out;
+}
+
+.my-cta-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 1.4rem 3rem rgba(253, 119, 119, 0.45);
+    background: #ff5f5f;
+}
+
+.my-cta-button:active{
+    transform: translateY(0);
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
+}
+.my-cta-button.loading{
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* ==============================
+   Result Page
+   ============================== */
+
+.result_main{
+    background-color: var(--bg-soft);
+    min-height: 100vh;
+    padding: 8rem 10% 4rem 10%;
+}
+
+.result_heading{
+    font-size: 2.4rem;
+    color: #222;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.result_row{
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1.6rem 2rem 0 2rem;
+    text-align: center;
+}
+
+.suffer{
+    font-size: 1.6rem;
+    color: #c62828;
+    background: #ffebee;
+    padding: 1.4rem 1.6rem;
+    border-radius: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.not_suffer{
+    font-size: 1.6rem;
+    color: #2e7d32;
+    background: #e8f5e9;
+    padding: 1.4rem 1.6rem;
+    border-radius: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.result_row p{
+    font-size: 1.3rem;
+    color: #555;
+    margin-top: 0.6rem;
+}
+
+.return{
+    display: block;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    padding: 2.5rem 0 0 0;
+}
+
+/* ==============================
+   Responsive Styles
+   ============================== */
+
+@media (max-width: 991px) {
+    html{
+        font-size: 58%;
+    }
+
+    .home::before,
+    .home::after{
+        display: none;
+    }
+
+    #menu-bar{
+        font-size: 2rem;
+    }
+
+    .description{
+        font-size: 1.2rem;
+    }
+
+    .image2{
+        margin-top: 10rem;
+        height: auto;
+        width: 60%;
+    }
+
+    .home{
+        padding: 9rem 5% 3rem 5%;
+    }
+}
+
+@media (max-width: 768px){
+    header{
+        padding: 1.5rem 5%;
+    }
+
+    .logo{
+        height: 5rem;
+        width: 5rem;
+        margin: 0 auto;
+        position: relative;
+        right: 0;
+    }
+
+    header #menu-bar{
+        display: block;
+    }
+
+    header .navbar{
+        position: fixed;
+        top: 8rem;
+        left: 0;
+        width: 100%;
+        background: var(--red);
+        border-top: 0.2rem solid rgba(0, 0, 0, 0.1);
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 0;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    header .navbar.nav-toggle{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header .navbar ul{
+        flex-flow: column;
+        padding: 2rem;
+    }
+
+    header .navbar ul li{
+        margin: 1.5rem 0;
+        width: 100%;
+    }
+
+    header .navbar ul li a{
+        display: block;
+        color: #fff;
+        padding-left: 2rem;
+        border-left: 0.2rem solid #fff;
+        font-size: 2rem;
+    }
+
+    header .navbar ul li a:hover,
+    header .navbar ul li a.active{
+        color: #333;
+        border-color: #333;
+    }
+
+    .fa-times{
+        transform: rotate(180deg);
+    }
+
+    .home{
+        flex-direction: column-reverse;
+        padding-top: 10rem;
+    }
+
+    .home .content{
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .home .content h3{
+        font-size: 1.8rem;
+    }
+
+    form{
+        max-width: 34rem;
+        padding: 2rem 2.2rem;
+    }
+
+    .form-input{
+        width: 100%;
+    }
+}

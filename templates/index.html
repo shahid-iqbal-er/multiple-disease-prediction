@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Disease Prediction</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Logo -->
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+
+<body>
+    <!-- === Header start === -->
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" title="Logo">
+        </a>
+        <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar navbar-nav">
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="active">Home</a></li>
+                <li><a href="{{ url_for('heart') }}">Heart</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver</a></li>
+                <li><a href="{{ url_for('kidney') }}">Kidney</a></li>
+                <li><a href="{{ url_for('cancer') }}">Cancer</a></li>
+                <li><a href="{{ url_for('result_history') }}">Result History</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- === Header End === -->
+
+    <!-- === Home Start === -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Machine Learning-based Multiple Disease Prediction System</h3>
+            <p>
+                This web application provides risk prediction for select diseases using
+                trained machine learning models. It is intended for educational and
+                screening support only and should not replace consultation with
+                healthcare professionals.
+            </p>
+        </div>
+        <div class="image">
+            <img src="{{ url_for('static', filename='home-image.jpeg') }}" alt="Healthcare illustration">
+        </div>
+    </section>
+
+    <h3>Model Accuracy</h3>
+<ul>
+    <li><strong>Heart (Logistic Regression)</strong>: ~88.52% (test accuracy)</li>
+    <li><strong>Liver (Logistic Regression)</strong>: ~73.50% (test accuracy)</li>
+    <li><strong>Kidney (Decision Tree)</strong>: ~100% (test accuracy on this dataset)</li>
+    <li><strong>Breast Cancer (Random Forest)</strong>: ~97.37% (test accuracy)</li>
+</ul>
+
+<p style="margin-top: 1.6rem; font-size: 1.3rem; text-align: center;">
+    <em><strong>Accuracies are based on held-out test sets and may vary with different data splits.</strong></em>
+</p>
+
+ <!-- Better spacing after accuracy section -->
+<h3 style="margin-top: 4rem; margin-bottom: 2rem;">
+    Conditions Supported by This Web App
+</h3>
+
+<div class="box-container">
+
+    <!-- Heart -->
+    <div class="box">
+        <div class="disease-card-header">
+            <span class="disease-icon">
+                <i class="fas fa-heartbeat"></i>
+            </span>
+            <span class="disease-name">Heart Disease</span>
+        </div>
+
+        <p class="description" style="margin-bottom: 1.6rem;">
+            Heart disease describes a range of conditions affecting the heart and blood vessels,
+            such as coronary artery disease, heart rhythm disorders, and structural abnormalities.
+        </p>
+
+        <span class="symptoms">Key Symptoms</span>
+        <ul class="list-symptons" style="margin-top: 0.8rem;">
+            <li>Chest pain or discomfort</li>
+            <li>Shortness of breath</li>
+            <li>Pain in neck, jaw, throat, or back</li>
+            <li>Weakness or coldness in arms or legs</li>
+        </ul>
+    </div>
+
+    <!-- Liver -->
+    <div class="box">
+        <div class="disease-card-header">
+            <span class="disease-icon">
+                <i class="fas fa-vials"></i>
+            </span>
+            <span class="disease-name">Liver Disease</span>
+        </div>
+
+        <p class="description" style="margin-bottom: 1.6rem;">
+            Liver disease affects the function of the liver, leading to metabolic and detoxification
+            impairments. Conditions include hepatitis, cirrhosis, and fatty liver disease.
+        </p>
+
+        <span class="symptoms">Key Symptoms</span>
+        <ul class="list-symptons" style="margin-top: 0.8rem;">
+            <li>Yellowing of skin or eyes (jaundice)</li>
+            <li>Swelling in ankles, legs, or abdomen</li>
+            <li>Nausea or vomiting</li>
+            <li>Persistent fatigue</li>
+        </ul>
+    </div>
+
+    <!-- Kidney -->
+    <div class="box">
+        <div class="disease-card-header">
+            <span class="disease-icon">
+                <i class="fas fa-tint"></i>
+            </span>
+            <span class="disease-name">Chronic Kidney Disease</span>
+        </div>
+
+        <p class="description" style="margin-bottom: 1.6rem;">
+            Chronic kidney disease (CKD) involves gradual loss of kidney function, causing waste
+            accumulation in the body. Severe CKD may require dialysis or transplantation.
+        </p>
+
+        <span class="symptoms">Key Symptoms</span>
+        <ul class="list-symptons" style="margin-top: 0.8rem;">
+            <li>Nausea or vomiting</li>
+            <li>Loss of appetite</li>
+            <li>Fatigue and weakness</li>
+            <li>High blood pressure (hypertension)</li>
+        </ul>
+    </div>
+
+    <!-- Breast Cancer -->
+    <div class="box">
+        <div class="disease-card-header">
+            <span class="disease-icon">
+                <i class="fas fa-ribbon"></i>
+            </span>
+            <span class="disease-name">Breast Cancer</span>
+        </div>
+
+        <p class="description" style="margin-bottom: 1.6rem;">
+            Breast cancer originates from abnormal growth of breast tissue cells. Early detection
+            significantly improves treatment success and long-term outcomes.
+        </p>
+
+        <span class="symptoms">Key Symptoms</span>
+        <ul class="list-symptons" style="margin-top: 0.8rem;">
+            <li>A new lump or mass in the breast</li>
+            <li>Changes in breast shape or size</li>
+            <li>Skin dimpling or puckering</li>
+            <li>Nipple changes or unusual discharge</li>
+        </ul>
+    </div>
+
+</div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>
+            Developed by Shahid Iqbal (2025). Led a team of 4 during the initial project phase;
+            independently rebuilt the full ML pipeline and web application in 2025.
+        </p>
+    </div>
+
+    <!-- jQuery Link -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>

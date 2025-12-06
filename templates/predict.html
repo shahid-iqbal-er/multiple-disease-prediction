@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <!-- Font Awesome (optional for icons later) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="result_main">
+
+    <h3 class="result_heading">Prediction Result</h3>
+
+    <div class="result_row">
+        {% if prediction is not none %}
+            {% if prediction == 1 %}
+                <p class="suffer">
+                    Our model indicates a <strong>higher likelihood of disease.</strong><br><br>
+                    This result is <strong>not</strong> a medical diagnosis.
+                    Please consult a qualified healthcare professional for clinical evaluation,
+                    confirmatory tests, and appropriate guidance.
+                </p>
+            {% elif prediction == 0 %}
+                <p class="not_suffer">
+                    Our model indicates a <strong>lower likelihood of disease.</strong><br><br>
+                    However, this does <strong>not</strong> replace a proper clinical assessment.
+                    If you have symptoms, risk factors, or concerns, please follow up with
+                    a healthcare professional.
+                </p>
+            {% endif %}
+
+            <p style="margin-top: 20px; font-size: 1.3rem;">
+                This tool is intended for <strong>educational and screening purposes only</strong>
+                and should not be used as a substitute for professional medical advice,
+                diagnosis, or treatment.
+            </p>
+        {% else %}
+            <p class="description" style="text-align:center; font-size:1.4rem; margin-top:20px;">
+                No prediction available. Please submit a form from one of the disease pages.
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="result_home">
+        <div class="return">
+            <a href="{{ url_for('index') }}">Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

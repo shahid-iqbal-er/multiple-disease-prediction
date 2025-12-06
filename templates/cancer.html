@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='cancer.jpeg') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" title="Logo">
+        </a>
+        <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('heart') }}">Heart</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver</a></li>
+                <li><a href="{{ url_for('kidney') }}">Kidney</a></li>
+                <li><a href="{{ url_for('cancer') }}" class="active">Cancer</a></li>
+                <li><a href="{{ url_for('result_history') }}">Result History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Image + title -->
+    <img class="image2" src="{{ url_for('static', filename='cancer.jpeg') }}" alt="Breast Cancer">
+    <span class="title">Breast Cancer Prediction</span>
+
+    <div class="card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <!-- Mean features -->
+            <input class="form-input" type="text" name="radius_mean" placeholder="radius_mean (e.g., 20.57)" required><br>
+            <input class="form-input" type="text" name="texture_mean" placeholder="texture_mean (e.g., 17.77)" required><br>
+            <input class="form-input" type="text" name="perimeter_mean" placeholder="perimeter_mean (e.g., 132.90)" required><br>
+            <input class="form-input" type="text" name="area_mean" placeholder="area_mean (e.g., 1326.0)" required><br>
+            <input class="form-input" type="text" name="smoothness_mean" placeholder="smoothness_mean (e.g., 0.08474)" required><br>
+            <input class="form-input" type="text" name="compactness_mean" placeholder="compactness_mean (e.g., 0.07864)" required><br>
+            <input class="form-input" type="text" name="concavity_mean" placeholder="concavity_mean (e.g., 0.08690)" required><br>
+            <input class="form-input" type="text" name="concave_points_mean" placeholder="concave_points_mean (e.g., 0.07017)" required><br>
+            <input class="form-input" type="text" name="symmetry_mean" placeholder="symmetry_mean (e.g., 0.18120)" required><br>
+
+            <!-- Standard error features -->
+            <input class="form-input" type="text" name="radius_se" placeholder="radius_se (e.g., 0.05667)" required><br>
+            <input class="form-input" type="text" name="perimeter_se" placeholder="perimeter_se (e.g., 3.398)" required><br>
+            <input class="form-input" type="text" name="area_se" placeholder="area_se (e.g., 74.08)" required><br>
+            <input class="form-input" type="text" name="compactness_se" placeholder="compactness_se (e.g., 0.01308)" required><br>
+            <input class="form-input" type="text" name="concavity_se" placeholder="concavity_se (e.g., 0.01860)" required><br>
+            <input class="form-input" type="text" name="concave_points_se" placeholder="concave_points_se (e.g., 0.01340)" required><br>
+            <input class="form-input" type="text" name="fractal_dimension_se" placeholder="fractal_dimension_se (e.g., 0.003532)" required><br>
+
+            <!-- Worst features -->
+            <input class="form-input" type="text" name="radius_worst" placeholder="radius_worst (e.g., 24.99)" required><br>
+            <input class="form-input" type="text" name="texture_worst" placeholder="texture_worst (e.g., 23.41)" required><br>
+            <input class="form-input" type="text" name="perimeter_worst" placeholder="perimeter_worst (e.g., 158.80)" required><br>
+            <input class="form-input" type="text" name="area_worst" placeholder="area_worst (e.g., 1956.0)" required><br>
+            <input class="form-input" type="text" name="smoothness_worst" placeholder="smoothness_worst (e.g., 0.12380)" required><br>
+            <input class="form-input" type="text" name="compactness_worst" placeholder="compactness_worst (e.g., 0.18660)" required><br>
+            <input class="form-input" type="text" name="concavity_worst" placeholder="concavity_worst (e.g., 0.24160)" required><br>
+            <input class="form-input" type="text" name="concave_points_worst" placeholder="concave_points_worst (e.g., 0.18600)" required><br>
+            <input class="form-input" type="text" name="symmetry_worst" placeholder="symmetry_worst (e.g., 0.27500)" required><br>
+            <input class="form-input" type="text" name="fractal_dimension_worst" placeholder="fractal_dimension_worst (e.g., 0.08902)" required><br>
+
+            <input type="submit" class="my-cta-button" value="Predict">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>
+            Developed by Shahid Iqbal (2025). Led a team of 4 during the initial project phase;
+            independently rebuilt the full ML pipeline and web application in 2025.
+        </p>
+    </div>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

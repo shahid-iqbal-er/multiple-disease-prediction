@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Kidney Disease Prediction</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='kidney.jpg') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" title="Logo">
+        </a>
+        <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('heart') }}">Heart</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver</a></li>
+                <li><a href="{{ url_for('kidney') }}" class="active">Kidney</a></li>
+                <li><a href="{{ url_for('cancer') }}">Cancer</a></li>
+                <li><a href="{{ url_for('result_history') }}">Result History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Image + title -->
+    <img class="image2" src="{{ url_for('static', filename='kidney.jpg') }}" alt="Kidney">
+    <span class="title">Chronic Kidney Disease Prediction</span>
+
+    <div class="card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <input class="form-input" type="text" name="age" placeholder="Age (e.g., 48)" required><br>
+            <input class="form-input" type="text" name="bp" placeholder="Blood pressure (e.g., 70)" required><br>
+            <input class="form-input" type="text" name="al" placeholder="Albumin (e.g., 4.0)" required><br>
+            <input class="form-input" type="text" name="su" placeholder="Sugar (e.g., 0.0)" required><br>
+            <input class="form-input" type="text" name="rbc" placeholder="Red blood cells (0/1)" required><br>
+            <input class="form-input" type="text" name="pc" placeholder="Pus cells (0/1)" required><br>
+            <input class="form-input" type="text" name="pcc" placeholder="Pus cell clumps (0/1)" required><br>
+            <input class="form-input" type="text" name="ba" placeholder="Bacteria (0/1)" required><br>
+            <input class="form-input" type="text" name="bgr" placeholder="Blood glucose random (e.g., 117.0)" required><br>
+            <input class="form-input" type="text" name="bu" placeholder="Blood urea (e.g., 56.0)" required><br>
+            <input class="form-input" type="text" name="sc" placeholder="Serum creatinine (e.g., 3.8)" required><br>
+            <input class="form-input" type="text" name="pot" placeholder="Potassium (e.g., 2.5)" required><br>
+            <input class="form-input" type="text" name="wc" placeholder="White blood cell count (e.g., 6700)" required><br>
+            <input class="form-input" type="text" name="htn" placeholder="Hypertension (0/1)" required><br>
+            <input class="form-input" type="text" name="dm" placeholder="Diabetes mellitus (0/1)" required><br>
+            <input class="form-input" type="text" name="cad" placeholder="Coronary artery disease (0/1)" required><br>
+            <input class="form-input" type="text" name="pe" placeholder="Pedal edema (0/1)" required><br>
+            <input class="form-input" type="text" name="ane" placeholder="Anemia (0/1)" required><br>
+
+            <input type="submit" class="my-cta-button" value="Predict">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>
+            Developed by Shahid Iqbal (2025). Led a team of 4 during the initial project phase;
+            independently rebuilt the full ML pipeline and web application in 2025.
+        </p>
+    </div>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
