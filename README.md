@@ -27,55 +27,62 @@ Real-time ML predictions using .pkl models
 This tool is intended strictly for educational and research purposes.
 It must not be used for professional diagnosis or medical decision-making.
 
-🧠 Supported Diseases & Best Models
-Disease	Best Model	Test Accuracy	Notes
-Heart Disease	Logistic Regression	~88.52%	Strong generalization, low overfitting
-Liver Disease	Logistic Regression	~73.50%	Most stable across splits
-Chronic Kidney Disease	Decision Tree	~100%	Dataset very separable
-Breast Cancer	Random Forest	~97.37%	Best precision & F1
+## Supported Diseases & Best Models
 
-Each best-performing model is trained on full data and saved as
-<disease>_best_model.pkl, which the Flask app loads for prediction.
+| Disease               | Best Model           | Test Accuracy | Notes                                  |
+|-----------------------|----------------------|---------------|----------------------------------------|
+| Heart Disease         | Logistic Regression  | ~88.52%       | Strong generalization, low overfitting |
+| Liver Disease         | Logistic Regression  | ~73.50%       | Most stable across splits              |
+| Chronic Kidney Disease| Decision Tree        | ~100%         | Dataset is very separable              |
+| Breast Cancer         | Random Forest        | ~97.37%       | Best precision & F1                    |
 
-📂 Project Structure
-multiple-disease-prediction-final/
+Each best-performing model is trained on full data and saved as `<disease>_best_model.pkl`, which the Flask app loads for prediction.
+
+
+## Project Structure
+
+```text
+multiple-disease-prediction/
 │
 ├── App/
-│   ├── app.py                         # Flask application
-│   ├── heart_best_model.pkl           # Best Heart model
-│   ├── liver_best_model.pkl           # Best Liver model
-│   ├── kidney_best_model.pkl          # Best Kidney model
-│   ├── cancer_best_model.pkl          # Best Cancer model
+│   ├── app.py                     # Flask application
+│   ├── heart_best_model.pkl       # Best Heart model
+│   ├── liver_best_model.pkl       # Best Liver model
+│   ├── kidney_best_model.pkl      # Best Kidney model
+│   ├── cancer_best_model.pkl      # Best Cancer model
 │
-├── templates/
-│   ├── index.html                     # Home page
+├── templates/                     # HTML templates
+│   ├── index.html                 # Home page
 │   ├── heart.html
 │   ├── liver.html
 │   ├── kidney.html
 │   ├── cancer.html
 │   ├── predict.html
-│   ├── result_history.html            # History disabled (no DB)
+│   ├── result_history.html        # History view (DB currently disabled)
 │
 ├── static/
-│   ├── style.css                      # Custom CSS (modern UI)
-│   ├── main.js                        # Mobile menu + prediction loading state
-│   ├── images (optional)              # Icons, logos, backgrounds
+│   ├── style.css                  # Custom CSS (modern UI)
+│   ├── main.js                    # Mobile menu + loading state
+│   └── images/                    # Icons / screenshots (optional)
 │
-├── Notebooks/                         # Full ML workflow notebooks
+├── Notebooks/                     # Full ML workflows
 │   ├── Heart.ipynb
 │   ├── Liver.ipynb
 │   ├── Kidney.ipynb
-│   ├── Cancer.ipynb
+│   └── Cancer.ipynb
 │
-├── Dataset/                           # Raw datasets for ML
+├── Dataset/                       # Raw datasets
 │   ├── heart.csv
 │   ├── kidney_disease.csv
 │   ├── indian_liver_patient.csv
-│   ├── cancer.csv
+│   └── cancer.csv
 │
-├── requirements.txt                   # Python dependencies
-├── README.md                          # (this file)
-└── venv/                              # Virtual environment (ignored on GitHub)
+├── requirements.txt               # Python dependencies
+├── Procfile                       # For deployment (Gunicorn/WSGI)
+├── README.md
+├── LICENSE
+└── venv/                          # Local virtual env (ignored by Git)
+
 
 ✨ Features
 🔸 Machine Learning
@@ -152,14 +159,12 @@ Saving model for deployment
 
 ![alt text](<Screenshot (106).png>) ![alt text](<Screenshot (107).png>) ![alt text](<Screenshot (108).png>) ![alt text](<Screenshot (109).png>)
 
-/screenshots
-    home.png
-    heart_form.png
-    prediction_result.png
 
 ⚙️ Setup & Installation
 1️⃣ Clone the repository
-git clone https://github.com/yourusername/multiple-disease-prediction.git
+git clone https://github.com/shahid-iqbal-er/multiple-disease-prediction.git
+cd multiple-disease-prediction
+
 cd multiple-disease-prediction-final
 
 2️⃣ Create and activate virtual environment
