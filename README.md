@@ -1,3 +1,8 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.11-blue.svg)
+![Flask](https://img.shields.io/badge/Framework-Flask-black.svg)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-green.svg)
+
 📌 Multiple Disease Prediction System (ML + Flask Web App)
 
 Predict Heart Disease, Liver Disease, Kidney Disease, and Breast Cancer using trained Machine Learning models and a Flask-based web interface.
