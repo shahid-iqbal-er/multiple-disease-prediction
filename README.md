@@ -3,43 +3,47 @@
 ![Flask](https://img.shields.io/badge/Framework-Flask-black.svg)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-green.svg)
 
-📌 Multiple Disease Prediction System (ML + Flask Web App)
+# 📌 Multiple Disease Prediction System (ML + Flask Web App)
 
-Predict Heart Disease, Liver Disease, Kidney Disease, and Breast Cancer using trained Machine Learning models and a Flask-based web interface.
+Predict **Heart Disease**, **Liver Disease**, **Kidney Disease**, and **Breast Cancer** using trained Machine Learning models integrated into a Flask-based web application.
 
-🚀 Overview
+---
 
-This project is an end-to-end Machine Learning and Web Application system that predicts the likelihood of multiple diseases based on clinical input features.
+## 🚀 Overview
+
+This project is an end-to-end **Machine Learning + Web Application** designed to predict multiple diseases from clinical input features.
 
 It includes:
 
-Complete model training pipelines in Jupyter notebooks
+- Complete **model training pipelines** in Jupyter notebooks  
+- **Model comparison & best selection** for each disease  
+- A Flask-based **interactive web interface**  
+- Clean, responsive UI with symptom descriptions  
+- Real-time predictions using serialized `.pkl` models  
 
-Best model selection for each disease
+### ⚠️ Disclaimer  
+This tool is intended strictly for **educational and research purposes**.  
+It must **not** be used for medical diagnosis or decision-making.
 
-A Flask web application for user interaction
+---
 
-A clean, responsive UI with symptom descriptions and model performance
+## 🧠 Supported Diseases & Best Models
 
-Real-time ML predictions using .pkl models
+| Disease                 | Best Model           | Test Accuracy | Notes                                  |
+|------------------------|-----------------------|---------------|----------------------------------------|
+| Heart Disease          | Logistic Regression   | ~88.52%       | Strong generalization, low overfitting |
+| Liver Disease          | Logistic Regression   | ~73.50%       | Most stable across splits              |
+| Chronic Kidney Disease | Decision Tree         | ~100%         | Dataset is highly separable            |
+| Breast Cancer          | Random Forest         | ~97.37%       | Best precision & F1                    |
 
-⚠️ Disclaimer:
-This tool is intended strictly for educational and research purposes.
-It must not be used for professional diagnosis or medical decision-making.
-
-## Supported Diseases & Best Models
-
-| Disease               | Best Model           | Test Accuracy | Notes                                  |
-|-----------------------|----------------------|---------------|----------------------------------------|
-| Heart Disease         | Logistic Regression  | ~88.52%       | Strong generalization, low overfitting |
-| Liver Disease         | Logistic Regression  | ~73.50%       | Most stable across splits              |
-| Chronic Kidney Disease| Decision Tree        | ~100%         | Dataset is very separable              |
-| Breast Cancer         | Random Forest        | ~97.37%       | Best precision & F1                    |
-
-Each best-performing model is trained on full data and saved as `<disease>_best_model.pkl`, which the Flask app loads for prediction.
+Each selected model is trained on full data and saved as:  
 
 
-## Project Structure
+The Flask app loads these models during prediction.
+
+---
+
+## 📂 Project Structure
 
 ```text
 multiple-disease-prediction/
@@ -51,19 +55,19 @@ multiple-disease-prediction/
 │   ├── kidney_best_model.pkl      # Best Kidney model
 │   ├── cancer_best_model.pkl      # Best Cancer model
 │
-├── templates/                     # HTML templates
+├── templates/                     # HTML pages (Jinja2)
 │   ├── index.html                 # Home page
 │   ├── heart.html
 │   ├── liver.html
 │   ├── kidney.html
 │   ├── cancer.html
 │   ├── predict.html
-│   ├── result_history.html        # History view (DB currently disabled)
+│   ├── result_history.html        # (DB logging disabled)
 │
 ├── static/
-│   ├── style.css                  # Custom CSS (modern UI)
-│   ├── main.js                    # Mobile menu + loading state
-│   └── images/                    # Icons / screenshots (optional)
+│   ├── style.css                  # Modern CSS design
+│   ├── main.js                    # Menu + loading animation
+│   └── images/                    # Icons / UI assets
 │
 ├── Notebooks/                     # Full ML workflows
 │   ├── Heart.ipynb
@@ -77,67 +81,66 @@ multiple-disease-prediction/
 │   ├── indian_liver_patient.csv
 │   └── cancer.csv
 │
-├── requirements.txt               # Python dependencies
-├── Procfile                       # For deployment (Gunicorn/WSGI)
+├── requirements.txt               # Dependencies
+├── Procfile                       # Deployment (Gunicorn)
 ├── README.md
 ├── LICENSE
-└── venv/                          # Local virtual env (ignored by Git)
-
+└── venv/                          # Local virtual environment (ignored)
 
 ✨ Features
 🔸 Machine Learning
 
-Complete model comparison for each disease (LogReg, SVM, KNN, RF, XGBoost, etc.)
+Comprehensive model comparison (LogReg, SVM, KNN, Random Forest, XGBoost…)
 
-Confusion matrices
+Confusion matrices for error analysis
 
-ROC curves + AUC metrics
+ROC curves + AUC scoring
 
-Bias–variance analysis (Train vs Test gap)
+Train vs Test bias–variance analysis
 
-Best model auto-selection
+Automatic best model selection
 
 Deployment-ready .pkl models
 
-🔸 Web Application (Flask)
+🔸 Flask Web Application
 
-Responsive UI built with HTML + CSS + JS + Font Awesome
-
-Mobile-friendly navbar
+Responsive, modern UI
 
 Disease information cards with icons
 
-Input validation
+Clean input forms with validation
 
-Beautiful result screen with clear health guidance
+Real-time predictions with styled output
 
-Loading animation on prediction
+Mobile-friendly navigation
 
-🔸 Clean UI Highlights
+Loading animation during model prediction
 
-Professional layout
+🔸 UI & UX Highlights
 
-Centered cards and forms
+Professional layout for educational or demo settings
 
-Animated predict button
+Centered cards and structured forms
 
-Color-coded results (green = healthy, red = risk)
+Symptom sections for clarity
 
-📊 Model Development Workflow
+Color-coded prediction output (Green = Safe, Red = Risk)
 
-Each disease notebook follows:
+📊 ML Development Workflow
 
-Data loading
+Each notebook follows a complete workflow:
 
-Missing value handling
+Load dataset
 
-Feature preprocessing
+Handle missing values
 
-Model zoo definition
+Clean & preprocess features
 
-Training & evaluation
+Define multiple candidate models
 
-Comparison plots:
+Train models & compute metrics
+
+Visualize performance:
 
 Accuracy
 
@@ -151,33 +154,26 @@ Confusion matrices
 
 ROC curves
 
-Best model selection
+Compare overfitting/underfitting
 
-Saving model for deployment
+Select the best model
 
-🖥️ Screenshots
+Save model to .pkl for deployment
 
-![alt text](<Screenshot (106).png>) ![alt text](<Screenshot (107).png>) ![alt text](<Screenshot (108).png>) ![alt text](<Screenshot (109).png>)
-
-
+🖼️ Screenshots
+<p align="center"> <img src="Screenshot (106).png" alt="Home page" width="45%"> <img src="Screenshot (107).png" alt="Prediction Form" width="45%"> </p> <p align="center"> <img src="Screenshot (108).png" alt="Result Page" width="45%"> <img src="Screenshot (109).png" alt="Additional Form" width="45%"> </p>
 ⚙️ Setup & Installation
 1️⃣ Clone the repository
 git clone https://github.com/shahid-iqbal-er/multiple-disease-prediction.git
 cd multiple-disease-prediction
 
-cd multiple-disease-prediction-final
-
-2️⃣ Create and activate virtual environment
+2️⃣ Create and activate a virtual environment
 python -m venv venv
 
-
 Windows:
-
 .\venv\Scripts\Activate.ps1
 
-
 Linux/Mac:
-
 source venv/bin/activate
 
 3️⃣ Install dependencies
@@ -188,7 +184,7 @@ cd App
 python app.py
 
 
-Open in your browser:
+Visit in your browser:
 
 http://127.0.0.1:5000
 
@@ -201,37 +197,40 @@ scikit-learn
 
 XGBoost
 
-Matplotlib & Seaborn
+Matplotlib
 
-Pipelines + Imputation
+Seaborn
+
+Pipelines & Imputation
 
 Web Development
 
 Flask
 
-HTML5 / CSS3 / JavaScript
+HTML5, CSS3, JavaScript
 
 Font Awesome
 
-Responsive layout
+Responsive UI
 
 ⚠️ Important Disclaimer
 
 This project is not a medical device.
-Predictions are based on machine learning models trained on publicly available datasets and should never be used for clinical decision-making.
+Predictions are based on ML models trained on publicly available datasets and should never replace professional medical advice.
 
-📜## License
+📜 License
 
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
-
-
+This project is licensed under the MIT License — see the LICENSE
+ file for details.
 
 🙌 Acknowledgements
 
 UCI Machine Learning Repository
 
-Kaggle datasets for disease prediction
+Kaggle datasets
 
 scikit-learn & XGBoost communities
 
 Flask documentation
+
+Developed by Shahid Iqbal (2025)
