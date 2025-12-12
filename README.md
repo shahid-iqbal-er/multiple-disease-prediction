@@ -264,8 +264,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 📚 Data Sources:
 The datasets used for training and evaluating the machine learning models are sourced from reputable public repositories:
 
-Kaggle
-UCI Machine Learning Repository
+**Kaggle** and 
+**UCI Machine Learning Repository**
 
 ## 💡 Suggestions for Improvement
 
