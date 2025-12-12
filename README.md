@@ -261,7 +261,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 *   [Scikit-learn](https://scikit-learn.org/)
 *   [Jupyter Notebook](https://jupyter.org/)
 
-📚 Data Sources
+📚 Data Sources:
 The datasets used for training and evaluating the machine learning models are sourced from reputable public repositories:
 
 Kaggle
