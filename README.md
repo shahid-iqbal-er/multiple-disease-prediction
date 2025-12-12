@@ -260,7 +260,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 *   [Flask](https://flask.palletsprojects.com/)
 *   [Scikit-learn](https://scikit-learn.org/)
 *   [Jupyter Notebook](https://jupyter.org/)
-*   Dataset sources: (Add specific links to datasets if publicly available and distinct from original draft)
+
+📚 Data Sources
+The datasets used for training and evaluating the machine learning models are sourced from reputable public repositories:
+
+Kaggle
+UCI Machine Learning Repository
 
 ## 💡 Suggestions for Improvement
 
