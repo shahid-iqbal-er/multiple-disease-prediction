@@ -4,9 +4,12 @@
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Enabled-green.svg)
 ![Project Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-# 🩺 Multiple Disease Prediction System (ML + Flask Web App)
+## 🌟 Introduction
 
-An end-to-end Machine Learning web application for predicting multiple common diseases with an intuitive Flask interface.
+This project was developed as part of an academic effort to explore how classical supervised machine learning models behave on real-world healthcare datasets. The primary goal was not only to achieve high predictive accuracy, but also to understand model behavior, data limitations, and generalization challenges when working with noisy and imperfect clinical data.
+
+The system integrates multiple disease-specific machine learning models into a single Flask-based web application, allowing structured experimentation and comparison across datasets related to Heart Disease, Liver Disease, Chronic Kidney Disease, and Breast Cancer. The project emphasizes reproducibility, comparative evaluation, and practical constraints commonly encountered in applied healthcare machine learning.
+
 
 ## Table of Contents
 *   [🌟 Introduction](#🌟-introduction)
@@ -14,6 +17,7 @@ An end-to-end Machine Learning web application for predicting multiple common di
 *   [✨ Features](#✨-features)
 *   [🧠 Supported Diseases & Best Models](#🧠-supported-diseases--best-models)
 *   [📊 ML Development Workflow](#📊-ml-development-workflow)
+*   [⚠️ Data Challenges & Limitations](#⚠️-data-challenges--limitations)
 *   [📂 Project Structure](#📂-project-structure)
 *   [📸 Screenshots](#📸-screenshots)
 *   [🛠️ Tech Stack](#🛠️-tech-stack)
@@ -98,6 +102,21 @@ Each disease prediction model follows a comprehensive Machine Learning developme
     *   Comparison of train vs. test metrics to assess overfitting/underfitting tendencies.
 7.  **Select the Best Model**: Identification of the optimal model based on evaluated metrics, stability, and generalization ability.
 8.  **Save Model**: Serialization of the chosen model to a `.pkl` file for seamless deployment within the web application.
+
+## ⚠️ Data Challenges & Limitations
+
+This project intentionally worked with publicly available healthcare datasets to reflect real-world constraints rather than idealized experimental conditions.
+
+Several limitations were observed during experimentation:
+
+- **Data scarcity and noise**: Some datasets, particularly the Indian Liver Patient Dataset, contained missing values, noisy measurements, and overlapping feature distributions, which limited model separability.
+- **Class imbalance**: Certain disease classes were underrepresented, affecting recall and stability across train–test splits.
+- **Lower liver disease performance**: Liver disease prediction achieved approximately **73.5% accuracy**, significantly lower than other tasks, largely due to weak feature separability and noise amplification during preprocessing.
+- **Lack of longitudinal features**: All datasets were tabular and static, without temporal or follow-up information, restricting modeling of disease progression.
+- **Limited external validation**: Models were evaluated on dataset-specific splits and not tested across multiple populations, which may affect generalizability.
+
+These challenges reinforced the importance of robust preprocessing, careful metric selection beyond accuracy, and the need for explainable and uncertainty-aware models in healthcare applications.
+
 
 ## 📂 Project Structure
 
